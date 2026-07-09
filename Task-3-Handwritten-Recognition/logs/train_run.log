@@ -1,0 +1,120 @@
+2026-07-09 20:21:22 | INFO     | train | Compute device: CPU
+2026-07-09 20:21:22 | INFO     | dataset | Loading MNIST via Keras...
+2026-07-09 20:21:22 | INFO     | dataset | Prepared MNIST -> train=54000, val=6000, test=10000 | shape=(28, 28, 1)
+2026-07-09 20:21:22 | INFO     | model | Built CNN with 24 trainable layers
+2026-07-09 20:21:22 | INFO     | train | Model: "handwriting_cnn"
++--------------------------------------------------------------------------+
+| Layer (type)                    | Output Shape           |       Param # |
+|---------------------------------+------------------------+---------------|
+| image (InputLayer)              | (None, 28, 28, 1)      |             0 |
+|---------------------------------+------------------------+---------------|
+| normalize (Rescaling)           | (None, 28, 28, 1)      |             0 |
+|---------------------------------+------------------------+---------------|
+| augmentation (Sequential)       | (None, 28, 28, 1)      |             0 |
+|---------------------------------+------------------------+---------------|
+| conv0_a (Conv2D)                | (None, 28, 28, 32)     |           320 |
+|---------------------------------+------------------------+---------------|
+| conv0_b (Conv2D)                | (None, 28, 28, 32)     |         9,248 |
+|---------------------------------+------------------------+---------------|
+| bn0 (BatchNormalization)        | (None, 28, 28, 32)     |           128 |
+|---------------------------------+------------------------+---------------|
+| pool0 (MaxPooling2D)            | (None, 14, 14, 32)     |             0 |
+|---------------------------------+------------------------+---------------|
+| drop0 (Dropout)                 | (None, 14, 14, 32)     |             0 |
+|---------------------------------+------------------------+---------------|
+| conv1_a (Conv2D)                | (None, 14, 14, 64)     |        18,496 |
+|---------------------------------+------------------------+---------------|
+| conv1_b (Conv2D)                | (None, 14, 14, 64)     |        36,928 |
+|---------------------------------+------------------------+---------------|
+| bn1 (BatchNormalization)        | (None, 14, 14, 64)     |           256 |
+|---------------------------------+------------------------+---------------|
+| pool1 (MaxPooling2D)            | (None, 7, 7, 64)       |             0 |
+|---------------------------------+------------------------+---------------|
+| drop1 (Dropout)                 | (None, 7, 7, 64)       |             0 |
+|---------------------------------+------------------------+---------------|
+| conv2_a (Conv2D)                | (None, 7, 7, 128)      |        73,856 |
+|---------------------------------+------------------------+---------------|
+| conv2_b (Conv2D)                | (None, 7, 7, 128)      |       147,584 |
+|---------------------------------+------------------------+---------------|
+| bn2 (BatchNormalization)        | (None, 7, 7, 128)      |           512 |
+|---------------------------------+------------------------+---------------|
+| pool2 (MaxPooling2D)            | (None, 3, 3, 128)      |             0 |
+|---------------------------------+------------------------+---------------|
+| drop2 (Dropout)                 | (None, 3, 3, 128)      |             0 |
+|---------------------------------+------------------------+---------------|
+| gap (GlobalAveragePooling2D)    | (None, 128)            |             0 |
+|---------------------------------+------------------------+---------------|
+| fc (Dense)                      | (None, 128)            |        16,512 |
+|---------------------------------+------------------------+---------------|
+| bn_fc (BatchNormalization)      | (None, 128)            |           512 |
+|---------------------------------+------------------------+---------------|
+| drop_fc (Dropout)               | (None, 128)            |             0 |
+|---------------------------------+------------------------+---------------|
+| predictions (Dense)             | (None, 10)             |         1,290 |
++--------------------------------------------------------------------------+
+ Total params: 305,642 (1.17 MB)
+ Trainable params: 304,938 (1.16 MB)
+ Non-trainable params: 704 (2.75 KB)
+
+Epoch 1/20
+
+Epoch 1: val_accuracy improved from None to 0.80500, saving model to D:\Anshuman\CodeAlpha-ML-Internship\Task-3-Handwritten-Recognition\models\best_model.keras
+422/422 - 26s - 60ms/step - accuracy: 0.8519 - loss: 0.4676 - val_accuracy: 0.8050 - val_loss: 0.5751 - learning_rate: 1.0000e-03
+Epoch 2/20
+
+Epoch 2: val_accuracy improved from 0.80500 to 0.97683, saving model to D:\Anshuman\CodeAlpha-ML-Internship\Task-3-Handwritten-Recognition\models\best_model.keras
+422/422 - 26s - 61ms/step - accuracy: 0.9656 - loss: 0.1182 - val_accuracy: 0.9768 - val_loss: 0.0822 - learning_rate: 1.0000e-03
+Epoch 3/20
+
+Epoch 3: val_accuracy did not improve from 0.97683
+422/422 - 31s - 73ms/step - accuracy: 0.9740 - loss: 0.0878 - val_accuracy: 0.9733 - val_loss: 0.0841 - learning_rate: 1.0000e-03
+Epoch 4/20
+
+Epoch 4: val_accuracy did not improve from 0.97683
+422/422 - 30s - 72ms/step - accuracy: 0.9795 - loss: 0.0705 - val_accuracy: 0.9720 - val_loss: 0.0809 - learning_rate: 1.0000e-03
+Epoch 5/20
+
+Epoch 5: val_accuracy improved from 0.97683 to 0.99000, saving model to D:\Anshuman\CodeAlpha-ML-Internship\Task-3-Handwritten-Recognition\models\best_model.keras
+422/422 - 29s - 68ms/step - accuracy: 0.9799 - loss: 0.0665 - val_accuracy: 0.9900 - val_loss: 0.0335 - learning_rate: 1.0000e-03
+Epoch 6/20
+
+Epoch 6: val_accuracy did not improve from 0.99000
+422/422 - 29s - 68ms/step - accuracy: 0.9826 - loss: 0.0569 - val_accuracy: 0.9685 - val_loss: 0.1111 - learning_rate: 1.0000e-03
+Epoch 7/20
+
+Epoch 7: val_accuracy improved from 0.99000 to 0.99033, saving model to D:\Anshuman\CodeAlpha-ML-Internship\Task-3-Handwritten-Recognition\models\best_model.keras
+422/422 - 29s - 68ms/step - accuracy: 0.9831 - loss: 0.0560 - val_accuracy: 0.9903 - val_loss: 0.0305 - learning_rate: 1.0000e-03
+Epoch 8/20
+
+Epoch 8: val_accuracy improved from 0.99033 to 0.99283, saving model to D:\Anshuman\CodeAlpha-ML-Internship\Task-3-Handwritten-Recognition\models\best_model.keras
+422/422 - 29s - 68ms/step - accuracy: 0.9849 - loss: 0.0505 - val_accuracy: 0.9928 - val_loss: 0.0236 - learning_rate: 1.0000e-03
+Epoch 9/20
+
+Epoch 9: val_accuracy did not improve from 0.99283
+422/422 - 28s - 67ms/step - accuracy: 0.9860 - loss: 0.0479 - val_accuracy: 0.9912 - val_loss: 0.0325 - learning_rate: 1.0000e-03
+Epoch 10/20
+
+Epoch 10: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
+
+Epoch 10: val_accuracy did not improve from 0.99283
+422/422 - 33s - 77ms/step - accuracy: 0.9875 - loss: 0.0445 - val_accuracy: 0.9868 - val_loss: 0.0429 - learning_rate: 1.0000e-03
+Epoch 11/20
+
+Epoch 11: val_accuracy did not improve from 0.99283
+422/422 - 37s - 88ms/step - accuracy: 0.9903 - loss: 0.0340 - val_accuracy: 0.9923 - val_loss: 0.0262 - learning_rate: 5.0000e-04
+Epoch 12/20
+
+Epoch 12: ReduceLROnPlateau reducing learning rate to 0.0002500000118743628.
+
+Epoch 12: val_accuracy did not improve from 0.99283
+422/422 - 38s - 89ms/step - accuracy: 0.9907 - loss: 0.0316 - val_accuracy: 0.9928 - val_loss: 0.0235 - learning_rate: 5.0000e-04
+Epoch 13/20
+
+Epoch 13: val_accuracy did not improve from 0.99283
+422/422 - 38s - 90ms/step - accuracy: 0.9911 - loss: 0.0293 - val_accuracy: 0.9928 - val_loss: 0.0224 - learning_rate: 2.5000e-04
+Epoch 13: early stopping
+Restoring model weights from the end of the best epoch: 8.
+2026-07-09 20:28:04 | INFO     | train | Saved figure -> D:\Anshuman\CodeAlpha-ML-Internship\Task-3-Handwritten-Recognition\outputs\training_accuracy.png
+2026-07-09 20:28:04 | INFO     | train | Saved figure -> D:\Anshuman\CodeAlpha-ML-Internship\Task-3-Handwritten-Recognition\outputs\training_loss.png
+2026-07-09 20:28:06 | INFO     | train | Best model | val_accuracy=0.9928 val_loss=0.0236
+2026-07-09 20:28:06 | INFO     | train | Saved best model -> D:\Anshuman\CodeAlpha-ML-Internship\Task-3-Handwritten-Recognition\models\best_model.keras

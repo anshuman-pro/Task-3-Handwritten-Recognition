@@ -1,0 +1,41 @@
+# =============================================================================
+# Handwritten Character Recognition - Central Configuration
+# =============================================================================
+
+project:
+  name: handwritten-character-recognition
+  version: "1.0.0"
+  random_seed: 42
+
+data:
+  dataset: mnist          # mnist (10 digit classes)
+  num_classes: 10
+  img_size: 28
+  val_size: 0.1           # fraction of the training set held out for validation
+
+augmentation:
+  enabled: true
+  rotation: 0.06          # fraction of 2*pi
+  zoom: 0.10
+  translation: 0.10
+
+model:
+  conv_filters: [32, 64, 128]
+  dense_units: 128
+  dropout_conv: 0.25
+  dropout_dense: 0.40
+
+training:
+  epochs: 20
+  batch_size: 128
+  learning_rate: 0.001
+  early_stopping_patience: 5
+  lr_patience: 2
+  lr_factor: 0.5
+  min_lr: 0.00001
+  models_dir: models
+  outputs_dir: outputs
+
+logging:
+  level: INFO
+  log_dir: logs
